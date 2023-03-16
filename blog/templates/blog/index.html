@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %} {% block body %}
+<h1>This Is The Home Page Of My Blog</h1>
+<ul>
+{% for blogg in blog %} 
+   <li><a href="{% url 'blog:blog_posts' blogg.id %}"><strong>{{blogg}}</strong></a> Create on {{blogg.created_date|date:"M d, Y H:i"}} </li>  
+{% empty %}
+    <p>blog not save yet</p>
+{% endfor %} 
+</ul>
+{% endblock body %}
