@@ -7,6 +7,20 @@
     <title>My Blogs</title>
   </head>
   <body>
+    {% if user.is_authenticated %}
+      Hello, {{user.username}}
+    {% else %}
+    <a href="{% url 'accounts:login' %}">Login</a>
+    <a href="{% url 'accounts:register' %}">Register</a>
+    {% endif %}
     {% block body %}{% endblock body %}
   </body>
 </html>
+
+{% if user.is_authenticated %}
+  <hr>
+  <form action="{% url 'accounts:logout' %}" method="post">
+    {% csrf_token %}
+    <button name="submit">Logout</button>
+  </form>
+{% endif %}
