@@ -31,8 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # my apps
     "blog",
     "accounts",
+    # third party app
+    "bootstrap5",
+    # django defautl app
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -127,3 +131,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # My settings.
 LOGIN_REDIRECT_URL = "blog:index"
 LOGOUT_REDIRECT_URL = "accounts:login"
+LOGIN_URL = "accounts:login"
