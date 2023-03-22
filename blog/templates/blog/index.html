@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %} {% block body %}
-<h1>This Is The Home Page Of My Blog</h1>
+
 <a href="{% url 'blog:add_blog' %}">Wanna Add Blog</a>
 <ul>
 {% for blogg in blog %} 

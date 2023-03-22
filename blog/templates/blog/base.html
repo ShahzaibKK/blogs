@@ -5,15 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Blogs</title>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 border">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'blog:index' %}">KK Blogs</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'blog:index' %}">Blogs</a>
+            </li>
+        </div>
+      </div>
+    </nav>
+    <ul class="navbar-nav ms-auto mb-2 mb-md-0"></ul>
     {% if user.is_authenticated %}
-      Hello, {{user.username}}
+    <li class="nav-item">
+    <span class="navbar-text me-2">  Hello, {{user.username}}</span></li>
     {% else %}
     <a href="{% url 'accounts:login' %}">Login</a>
     <a href="{% url 'accounts:register' %}">Register</a>
     {% endif %}
     {% block body %}{% endblock body %}
+    </ul>
   </body>
 </html>
 

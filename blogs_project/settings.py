@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     "blog",
     "accounts",
     # third party app
-    "bootstrap5",
+    "django_bootstrap5",
     # django defautl app
     "django.contrib.admin",
     "django.contrib.auth",

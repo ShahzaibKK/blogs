@@ -11,8 +11,11 @@ def check_authors(blog, req):
         raise Http404
 
 
-def index(req):
-    blog = Blog.objects.filter(author=req.user).order_by("created_date")
+def index(req: HttpRequest):
+    if req.user.is_authenticated:
+        blog = Blog.objects.filter(author=req.user).order_by("created_date")
+    else:
+        blog = None
     context = {"blog": blog}
     return render(req, "blog/index.html", context)
 
